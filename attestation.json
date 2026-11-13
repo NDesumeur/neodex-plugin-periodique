@@ -1,0 +1,9 @@
+{
+  "pluginId": "neodex.periodique",
+  "repo": "NDesumeur/neodex-plugin-periodique",
+  "version": "1.0.0",
+  "sha256": "eacc1b317d4fc219672babda10fe069663abf9cc76cede38e74f3c6b31faff21",
+  "approvedAt": "2026-11-13T23:16:59.229Z",
+  "neobase": ">=4.0.0",
+  "signature": "l7tCFcoB5OQMt8qb84uV7POrzc9/Coa6F36MzjUbY78ClM3msPOdNIqSRDksEDhYVBf6BWMX/FuSOHYkLT3ODg=="
+}
