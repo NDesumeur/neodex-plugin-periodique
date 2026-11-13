@@ -1,0 +1,24 @@
+{
+  "id": "neodex.periodique",
+  "name": "Périodique",
+  "version": "1.0.0",
+  "author": "NDesumeur",
+  "description": "Le tableau périodique des 118 éléments en pixel art : fiche de chaque élément (masse, famille, état à 20 °C, période, groupe, radioactivité), familles à isoler d'un clic, recherche par nom, symbole ou numéro, et un quiz « où est… ? » de 10 questions avec ta meilleure série.",
+  "icon": "icon.png",
+  "entry": "index.js",
+  "view": "periodique",
+  "neobase": ">=4.0.0",
+  "type": "app",
+  "category": "Outils",
+  "compatibility": ["windows", "linux"],
+  "syncMode": "progression",
+  "syncInfo": "Records du quiz et dernier élément vu.",
+  "gamepad": true,
+  "mobile": false,
+  "system": false,
+  "dependencies": {},
+  "sdk": "2.1.0",
+  "permissions": [
+    "storage"
+  ]
+}
