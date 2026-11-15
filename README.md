@@ -27,3 +27,5 @@ Les records du quiz sont enregistrés par NeoDex, sauvegardés et synchronisés 
 ## Installer
 
 Dans NeoDex : **NeoStore → À découvrir → Périodique → Installer**.
+
+

@@ -2,7 +2,7 @@
 // Il tourne dans le bac à sable de NeoDex.
 const HTML = `<div class="appWrap wide">
   <div class="agHead"><span class="label">Périodique</span><span class="hint">Clic ou flèches : un élément · une famille dans la légende pour l'isoler · Q : quiz</span></div>
-  <div class="gMain"><div class="gameBox"><canvas id="peCanvas" width="258" height="164" role="img" aria-label="Tableau périodique"></canvas></div>
+  <div class="gMain"><div class="gameBox"><canvas id="peCanvas" width="258" height="190" role="img" aria-label="Tableau périodique"></canvas></div>
     <div class="gSide">
       <div class="sysCard"><b>FICHE</b><div class="gStats" id="peCard"></div></div>
       <div class="row"><input class="f" id="peFind" placeholder="Chercher : fer, Au, 79…" spellcheck="false"><button class="btn main" id="peQuiz">QUIZ</button></div>
@@ -12,7 +12,7 @@ const HTML = `<div class="appWrap wide">
 </div>`;
 const CSS = `.gMain{display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap}
 .gameBox{display:grid;place-items:center;padding:10px;background:#05010b;flex:0 0 auto}
-.gameBox canvas{height:min(74vh,600px);width:auto;aspect-ratio:258/164;image-rendering:pixelated;cursor:var(--cp,pointer);touch-action:none}
+.gameBox canvas{height:min(74vh,600px);width:auto;aspect-ratio:258/190;image-rendering:pixelated;cursor:var(--cp,pointer);touch-action:none}
 .gSide{display:flex;flex-direction:column;gap:14px;flex:1;min-width:260px;max-width:400px}
 .gSide .sysCard{display:flex;flex-direction:column}
 .gStats{display:grid;grid-template-columns:auto 1fr;gap:4px 14px}
@@ -348,14 +348,14 @@ export default async function (ctx) {
     else if (z <= 54) { r = z <= 36 ? 3 : 4; c = z - (r === 3 ? 19 : 37); }
     else { r = z <= 86 ? 5 : 6; const k = z - (r === 5 ? 55 : 87); if (k < 2) c = k; else if (k <= 16) { r += 3; c = k; } else c = k - 14; }
     e.r = r; e.c = c; e.period = z <= 2 ? 1 : z <= 10 ? 2 : z <= 18 ? 3 : z <= 36 ? 4 : z <= 54 ? 5 : z <= 86 ? 6 : 7; e.group = r >= 8 ? null : c + 1; }
-  const W = 258, H = 164, CW = 14, CH = 15, X0 = 3, Y0 = 4, YF = Y0 + 7 * CH + 6;
+  const W = 258, H = 190, CW = 14, CH = 15, X0 = 3, Y0 = 4, YF = Y0 + 7 * CH + 6;
   const at = e => [X0 + e.c * CW, e.r >= 8 ? YF + (e.r - 8) * CH : Y0 + e.r * CH];
   const save = { best: 0, games: 0, right: 0, last: 26, ...(await doc('quiz')) };
   const keep = () => folder.write('quiz', save).catch(() => {});
   let sel = EL.find(e => e.z === save.last) || EL[25], hover = null, only = null, find = '', quiz = null, g = null, tick = 0;
   const norm = s => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
   const match = e => !find || e.z === +find || norm(e.sym) === norm(find) || norm(e.name).startsWith(norm(find));
-  const legend = () => Object.keys(PE_FAM).map((k, i) => [k, 36 + (i % 2) * 64, 5 + Math.floor(i / 2) * 8]);  // dans le creux du haut du tableau
+  const legend = () => Object.keys(PE_FAM).map((k, i) => [k, [4, 67, 128, 196][i % 4], YF + 2 * CH + 4 + Math.floor(i / 4) * 9]);  // une bande sous les lanthanides et actinides, 4 familles par ligne
   function card(e) {
     const rows = [['Numéro', e.z], ['Symbole', e.sym], ['Nom', e.name], ['Masse', e.mass.toLocaleString('fr-FR') + ' u'], ['Famille', PE_FAM[e.fam][0]], ['État à 20 °C', PE_STATE[e.state]],
       ['Période', e.period], ['Groupe', e.group ?? (e.fam === 'la' ? 'lanthanides' : 'actinides')], ['Radioactif', e.z === 43 || e.z === 61 || e.z >= 84 ? 'oui' : 'non']];
@@ -386,7 +386,12 @@ export default async function (ctx) {
     // le grand symbole dans le creux du bas, ou la question du quiz
     const big = quiz && !quiz.done ? null : hover || sel;
     if (quiz && !quiz.done) { pxFont(g, 'Où est : ' + quiz.pool[quiz.i].name + ' ?', W / 2, H - 4, '#ffd84a', 8, 'center'); pxFont(g, (quiz.i + 1) + '/10', W - 4, H - 4, '#8a9ab0', 8, 'right'); }
-    else if (big) pxFont(g, big.z + ' · ' + big.name + ' · ' + big.mass.toLocaleString('fr-FR') + ' u', W / 2, H - 4, PE_FAM[big.fam][1], 8, 'center');
+    else if (big) {  // la fiche en grand dans le creux du haut du tableau
+      const col = PE_FAM[big.fam][1], tx = X0 + 2 * CW + 4, tw = 10 * CW - 9, ty = Y0 + 1, th = 3 * CH - 2;
+      px(g, '#05080e', tx, ty, tw, th); px(g, col, tx + 1, ty + 1, tw - 2, th - 2); px(g, '#0c1422', tx + 3, ty + 3, tw - 6, th - 6);
+      pxFont(g, String(big.z), tx + 6, ty + 11, col, 8); pxFont(g, big.mass.toLocaleString('fr-FR') + ' u', tx + tw - 6, ty + 11, '#c8d8e8', 8, 'right');
+      pxFont(g, big.sym, tx + tw / 2, ty + 28, col, 16, 'center'); pxFont(g, big.name, tx + tw / 2, ty + th - 6, '#ffffff', 8, 'center');
+    }
     if (quiz?.fx?.t > 0) { quiz.fx.t--; mark(quiz.fx.want, '#7ee07a'); if (!quiz.fx.good) mark(quiz.fx.e, '#ff4a3a'); }
     if (quiz?.done && --quiz.done <= 0) quiz = null;
     else if (quiz?.done) gameText(g, W, [['QUIZ FINI', '#6ab0f0', 12], [quiz.ok + ' sur 10' + (quiz.ok === save.best && quiz.ok ? ' · record !' : ''), '#ffd84a']], 64);

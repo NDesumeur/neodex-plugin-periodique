@@ -18,3 +18,5 @@ An element name appears: click its cell (symbols are hidden). Ten questions; you
 ## Data and sync
 
 Quiz records are saved by NeoDex and synced between your PCs if sync is on. Element names are in French.
+
+

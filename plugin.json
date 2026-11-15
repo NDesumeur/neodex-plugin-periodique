@@ -1,9 +1,9 @@
 {
   "id": "neodex.periodique",
   "name": "Périodique",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "NDesumeur",
-  "description": "Le tableau périodique des 118 éléments en pixel art : fiche de chaque élément (masse, famille, état à 20 °C, période, groupe, radioactivité), familles à isoler d'un clic, recherche par nom, symbole ou numéro, et un quiz « où est… ? » de 10 questions avec ta meilleure série.",
+  "description": "Le tableau périodique des 118 éléments en pixel art : fiche de chaque élément (masse, famille, état à 20 °C, période, groupe, radioactivité), familles à isoler d'un clic, recherche par nom, symbole ou numéro, et un quiz « où est… ? » de 10 questions avec ta meilleure série. La légende des familles ne chevauche plus le tableau : elle passe dans une bande sous les lanthanides, et le creux du haut montre l'élément choisi en grand (numéro, masse, symbole, nom).",
   "icon": "icon.png",
   "entry": "index.js",
   "view": "periodique",
