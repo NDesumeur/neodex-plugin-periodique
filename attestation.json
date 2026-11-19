@@ -1,9 +1,9 @@
 {
   "pluginId": "neodex.periodique",
   "repo": "NDesumeur/neodex-plugin-periodique",
-  "version": "1.0.1",
-  "sha256": "bac3666179b76be1214e8e14346c12c8114259e030dee4c15009c17d5b38ded9",
-  "approvedAt": "2026-11-16T04:14:38.557Z",
+  "version": "1.0.2",
+  "sha256": "b9d7871a8a6464ddfb97fe578b144131e2eea826abdfff5766be4bf297e131d7",
+  "approvedAt": "2026-11-19T23:26:39.930Z",
   "neobase": ">=4.0.0",
-  "signature": "r6VHG60G7hLLcqGYXx20+awmr+KtAJP/9v06UCOEu8380dlxyE7XZZtX/At9hgW9voXhOAU+rV93dUdbjU7VCA=="
+  "signature": "6HGbW+x3ryjkQMff/pkFHdnoilD8+99Se/VJXQN8VEGVFmkPMQf04gBDOdzAv3YAWiBObphJoZOXSthZw01/DQ=="
 }
