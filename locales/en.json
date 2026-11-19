@@ -40,7 +40,6 @@
  " sur 10": " out of 10",
  " · record !": " · record!",
  "Ce plugin doit être approuvé par NeoDex pour s'ouvrir.": "This plugin must be approved by NeoDex to open.",
- "Records du quiz et dernier élément vu.": "Quiz records and last element viewed.",
  "Tableau périodique": "Periodic table",
  "Chercher : fer, Au, 79…": "Search: iron, Au, 79…",
  "Alcalins": "Alkali",
@@ -118,5 +117,6 @@
  "fiche du fer :": "iron card:",
  "quiz fini trop tôt": "quiz over too early",
  "quiz : «": "quiz: «",
- "Le tableau périodique des 118 éléments en pixel art : fiche de chaque élément (masse, famille, état à 20 °C, période, groupe, radioactivité), familles à isoler d'un clic, recherche par nom, symbole ou numéro, et un quiz « où est… ? » de 10 questions avec ta meilleure série. La légende des familles ne chevauche plus le tableau : elle passe dans une bande sous les lanthanides, et le creux du haut montre l'élément choisi en grand (numéro, masse, symbole, nom).": "The periodic table of the 118 elements in pixel art: a card for each element (mass, family, state at 20 °C, period, group, radioactivity), families to highlight in one click, search by name, symbol or number, and a 10-question « where is…? » quiz with your best score. The family legend no longer overlaps the table: it moves to a strip below the lanthanides, and the gap at the top shows the chosen element in large (number, mass, symbol, name)."
+ "Le tableau périodique des 118 éléments en pixel art : fiche de chaque élément (masse, famille, état à 20 °C, période, groupe, radioactivité), familles à isoler d'un clic, recherche par nom, symbole ou numéro, et un quiz « où est… ? » de 10 questions avec ta meilleure série. La légende des familles ne chevauche plus le tableau : elle passe dans une bande sous les lanthanides, et le creux du haut montre l'élément choisi en grand (numéro, masse, symbole, nom).": "The periodic table of the 118 elements in pixel art: a card for each element (mass, family, state at 20 °C, period, group, radioactivity), families to highlight in one click, search by name, symbol or number, and a 10-question « where is…? » quiz with your best score. The family legend no longer overlaps the table: it moves to a strip below the lanthanides, and the gap at the top shows the chosen element in large (number, mass, symbol, name).",
+ "Rien n'est synchronisé : tes records restent sur cet appareil.": "Nothing is synced: your records stay on this device."
 }
